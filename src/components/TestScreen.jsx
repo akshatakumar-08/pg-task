@@ -128,6 +128,17 @@ const TestScreen = () => {
 
   const handleSubmit = () => {
     alert("Answers submitted successfully!");
+    
+    // Clear selections after submission
+    setSelectedOption(null);
+    setAnsweredQuestions(new Set());
+    setMarkedForReview([]);
+    
+    // Clear the stored selections
+    localStorage.removeItem('selectedOptions');
+    localStorage.removeItem('answeredQuestions');
+    localStorage.removeItem('markedForReview');
+
     handleLogout(); // Logout after submission
   };
 
